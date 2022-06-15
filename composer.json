@@ -1,0 +1,25 @@
+{
+  "name": "okcoder/think-helper",
+  "description": "The ThinkPHP6 Helper Package",
+  "license": "Apache-2.0",
+  "autoload": {
+    "psr-4": {
+      "okcoder\\think\\helper\\": "src/"
+    },
+    "files": [
+      "src/helper.php"
+    ]
+  },
+  "authors": [
+    {
+      "name": "OkCoder",
+      "email": "1046512080@qq.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.1.0",
+    "ext-json": "*",
+    "topthink/framework": "^6.0"
+  },
+  "minimum-stability": "dev"
+}
