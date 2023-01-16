@@ -1,15 +1,12 @@
 <?php
 
-use think\Response;
+use think\response\Json;
 
-if (!function_exists('apiReturn')) {
-    function apiReturn($data = [], string $message = 'SUCCESS', int $code = 0, $statusCode = 200, $header = [], $options = []): Response
+if (!function_exists('api_return')) {
+    function apiReturn($data = [], string $message = 'SUCCESS', int $code = 0, $statusCode = 200, $header = [], $options = []): Json
     {
-        return Response::create([
-            'data'      => $data,
-            'code'      => $code,
-            'message'   => $message,
-            'timestamp' => time()
-        ], 'json', $statusCode)->header($header)->options($options);
+        return json([
+            'data' => $data, 'message' => $message, 'code' => $code, 'timestamp' => time()
+        ], $statusCode, $header, $options);
     }
 }
