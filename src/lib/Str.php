@@ -10,7 +10,7 @@ class Str
      * @param bool $special 是否需要特殊符号
      * @return string       返回随机字符串
      */
-    public static function randomStr(int $len, bool $special = false): string
+    public static function random(int $len, bool $special = false): string
     {
         $chars = array(
             "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k",
@@ -45,11 +45,22 @@ class Str
      * @param string $str 需要截取的原字符串
      * @return string
      */
-    function centerStr(string $begin, string $end, string $str): string
+    public static function center(string $begin, string $end, string $str): string
     {
         $b = mb_strpos($str, $begin) + mb_strlen($begin);
         $e = mb_strpos($str, $end) - $b;
         return mb_substr($str, $b, $e);
     }
 
+    /**
+     * 字符串替换
+     * @param array $filter_array
+     * @param string $string
+     * @param string $new_str
+     * @return string
+     */
+    public static function filter(array $filter_array, string $string = '', string $new_str = '*',): string
+    {
+        return str_replace($filter_array, $new_str, $string);
+    }
 }
